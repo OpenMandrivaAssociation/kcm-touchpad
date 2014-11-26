@@ -1,4 +1,4 @@
-%define release 1
+%define release 2
 %define git 20141125
 Name:           kcm-touchpad
 Version:        1.1
@@ -19,6 +19,7 @@ BuildRequires:  pkgconfig(xorg-synaptics)
 
 Requires:       kdebase4-runtime
 
+Conflicts:		kcm_touchpad
 
 %description
 KCM, daemon and applet for touchpad.
