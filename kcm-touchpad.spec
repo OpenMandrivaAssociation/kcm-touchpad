@@ -16,6 +16,7 @@ BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-record)
 BuildRequires:  pkgconfig(xorg-server)
 BuildRequires:  pkgconfig(xorg-synaptics)
+BuildRequires:	pkgconfig(xi)
 
 Requires:       kdebase4-runtime
 
