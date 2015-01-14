@@ -1,0 +1,135 @@
+diff -urN kcm-touchpad/src/kcm/kcm_touchpad.desktop kcm-touchpad-patched/src/kcm/kcm_touchpad.desktop
+--- kcm-touchpad/src/kcm/kcm_touchpad.desktop	2014-11-25 22:22:54.000000000 +0300
++++ kcm-touchpad-patched/src/kcm/kcm_touchpad.desktop	2014-11-27 06:18:57.814053648 +0300
+@@ -30,6 +30,7 @@
+ Name[pt]=Rato por Toque
+ Name[pt_BR]=Touchpad
+ Name[ro]=Zonă tactilă
++Name[ru]=Сенсорная панель
+ Name[sk]=Touchpad
+ Name[sl]=Sledilna ploščica
+ Name[sv]=Tryckplatta
+@@ -53,6 +54,7 @@
+ Comment[pt]=Configuração do rato por toque
+ Comment[pt_BR]=Configurações do touchpad
+ Comment[ro]=Configurări zonă tactilă
++Comment[ru]=Настройки сенсорной панели
+ Comment[sk]=Nastavenia touchpadu
+ Comment[sl]=Nastavitve sledilne ploščice
+ Comment[sv]=Inställning av tryckplatta
+@@ -76,6 +78,7 @@
+ X-KDE-Keywords[pt]=Rato,Toque,Synaptics
+ X-KDE-Keywords[pt_BR]=Touchpad,Synaptics
+ X-KDE-Keywords[ro]=Touchpad,Synaptics,Zonă tactilă,Tactil
++X-KDE-Keywords[ru]=Touchpad,Synaptics
+ X-KDE-Keywords[sk]=Touchpad,Synaptics
+ X-KDE-Keywords[sl]=Sledilna ploščica,Synaptics
+ X-KDE-Keywords[sv]=Tryckplatta,Synaptics
+diff -urN kcm-touchpad/src/kded/kcm_touchpad.notifyrc kcm-touchpad-patched/src/kded/kcm_touchpad.notifyrc
+--- kcm-touchpad/src/kded/kcm_touchpad.notifyrc	2014-11-25 22:22:54.000000000 +0300
++++ kcm-touchpad-patched/src/kded/kcm_touchpad.notifyrc	2014-11-27 11:59:39.341282000 +0300
+@@ -16,6 +16,7 @@
+ Name[pt]=Rato por Toque
+ Name[pt_BR]=Touchpad
+ Name[ro]=Zonă tactilă
++Name[ru]=Сенсорная панель
+ Name[sk]=Touchpad
+ Name[sl]=Sledilna ploščica
+ Name[sv]=Tryckplatta
+@@ -40,6 +41,7 @@
+ Comment[pt]=Rato por Toque
+ Comment[pt_BR]=Touchpad
+ Comment[ro]=Zonă tactilă
++Comment[ru]=Сенсорна панель
+ Comment[sk]=Touchpad
+ Comment[sl]=Sledilna ploščica
+ Comment[sv]=Tryckplatta
+@@ -65,6 +67,7 @@
+ Name[pt]=O rato por toque foi desactivado
+ Name[pt_BR]=O touchpad foi desativado
+ Name[ro]=Zona tactilă a fost dezactivată
++Name[ru]=Сенсорная панель отключена
+ Name[sk]=Touchpad bol zakázaný
+ Name[sl]=Sledilna ploščica je bila onemogočena
+ Name[sv]=Tryckplattan stängdes av
+@@ -88,6 +91,7 @@
+ Comment[pt]=O rato por toque foi desactivado porque foi detectado um rato
+ Comment[pt_BR]=O touchpad foi desativado porque o mouse foi detectado
+ Comment[ro]=Zona tactilă a fost dezactivată deoarece s-a detectat un maus
++Comment[ru]=Сенсорная панель была отключена при подключении мыши
+ Comment[sk]=Touchpad bol zakázaný, lebo bola zistená myš
+ Comment[sl]=Sledilna ploščica je bila onemogočena, ker je bila zaznana miška
+ Comment[sv]=Tryckplattan stängdes av eftersom en mus detekterades
+@@ -115,6 +119,7 @@
+ Name[pt]=O rato por toque foi activado
+ Name[pt_BR]=O touchpad foi ativado
+ Name[ro]=Zona tactilă a fost activată
++Name[ru]=Сенсорная панель включена
+ Name[sk]=Touchpad bol povolený
+ Name[sl]=Sledilna ploščica je bila omogočena
+ Name[sv]=Tryckplattan aktiverades
+@@ -138,6 +143,7 @@
+ Comment[pt]=O rato por toque foi activado porque o rato foi desligado
+ Comment[pt_BR]=O touchpad foi ativado porque o mouse foi desconectado
+ Comment[ro]=Zona tactilă a fost activată deoarece mausul a fost deconectat
++Comment[ru]=Сенсорная панель была включена при отключении мыши
+ Comment[sk]=Touchpad bol povolený, pretože myš bola odpojená
+ Comment[sl]=Sledilna ploščica je bila omogočena, ker je bila miška odklopljena
+ Comment[sv]=Tryckplattan aktiverades eftersom en mus kopplades bort
+diff -urN kcm-touchpad/src/kded/kded.cpp kcm-touchpad-patched/src/kded/kded.cpp
+--- kcm-touchpad/src/kded/kded.cpp	2014-11-25 22:22:54.000000000 +0300
++++ kcm-touchpad-patched/src/kded/kded.cpp	2014-11-27 11:50:58.936247063 +0300
+@@ -20,6 +20,7 @@
+ 
+ #include <KNotification>
+ #include <KLocale>
++#include <KLocalizedString>
+ 
+ #include "plugins.h"
+ #include "kdedactions.h"
+ diff -urN kcm-touchpad/src/applet/qml/metadata.desktop kcm-touchpad-patched/src/applet/qml/metadata.desktop
+--- kcm-touchpad/src/applet/qml/metadata.desktop	2014-11-25 22:22:54.000000000 +0300
++++ kcm-touchpad-patched/src/applet/qml/metadata.desktop	2014-12-03 12:49:06.760208987 +0300
+@@ -16,6 +16,7 @@
+ Comment[pt]=Mostra o estado actual do rato por toque
+ Comment[pt_BR]=Mostra o estado atual do touchpad
+ Comment[ro]=Arată starea curentă a zonei tactile
++Comment[ru]=Показывает текущее состояние сенсорной панели
+ Comment[sk]=Zobrazí aktuálny stav touchpadu
+ Comment[sl]=Prikazuje trenutno stanje sledilne ploščice
+ Comment[sv]=Visar tryckplattans aktuellt tillstånd
+@@ -41,6 +42,7 @@
+ Keywords[pt]=Rato por Toque
+ Keywords[pt_BR]=Touchpad
+ Keywords[ro]=Zonă tactilă
++Keywords[ru]=Touchpad
+ Keywords[sk]=Touchpad
+ Keywords[sl]=Sledilna ploščica
+ Keywords[sv]=Tryckplatta
+@@ -64,6 +66,7 @@
+ Name[pt]=Rato por Toque
+ Name[pt_BR]=Touchpad
+ Name[ro]=Zonă tactilă
++Name[ru]=Сенсорная панель
+ Name[sk]=Touchpad
+ Name[sl]=Sledilna ploščica
+ Name[sv]=Tryckplatta
+diff -urN kcm-touchpad/src/kded/kded_touchpad.desktop kcm-touchpad-patched/src/kded/kded_touchpad.desktop
+--- kcm-touchpad/src/kded/kded_touchpad.desktop	2014-11-25 22:22:54.000000000 +0300
++++ kcm-touchpad-patched/src/kded/kded_touchpad.desktop	2014-11-27 06:14:18.521034898 +0300
+@@ -22,6 +22,7 @@
+ Name[pt]=Rato por Toque
+ Name[pt_BR]=Touchpad
+ Name[ro]=Zonă tactilă
++Name[ru]=Сенсорная панель
+ Name[sk]=Touchpad
+ Name[sl]=Sledilna ploščica
+ Name[sv]=Tryckplatta
+@@ -45,6 +46,7 @@
+ Comment[pt]=Activa ou desactiva o rato por toque
+ Comment[pt_BR]=Ativa ou desativa o touchpad
+ Comment[ro]=Activează sau dezactivează zona tactilă
++Comment[ru]=Включает или отключает сенсорную панель
+ Comment[sk]=Povolí alebo zakáže touchpad
+ Comment[sl]=Omogoči ali onemogoči sledilno ploščico
+ Comment[sv]=Aktiverar eller stänger av tryckplatta
