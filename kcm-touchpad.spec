@@ -11,6 +11,7 @@ Url:		https://projects.kde.org/projects/playground/utils/kcm-touchpad
 Source0:	%{name}-%{version}-%{git}.tar.bz2
 Source1:	kcm-touchpad_ru.tar.bz2
 Patch0:		kcm-touchpad-1.1-lang.patch
+BuildRequires:	make
 BuildRequires:	kdelibs4-devel
 BuildRequires:	pkgconfig(x11-xcb)
 BuildRequires:	pkgconfig(xcb)
